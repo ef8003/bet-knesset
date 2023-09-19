@@ -17,8 +17,12 @@ export const addUser = (userObj) => {
     return user.save()
 }
 
-export const updateUser = (_id, updatedUserObject) => {
-    return User.findOneAndUpdate({_id}, updatedUserObject, {
+export const updateUser = (_id, updateUserObject) => {
+    return User.findOneAndUpdate({_id}, updateUserObject, {
         new: true
       });
+}
+
+export const logInUser = (username) => {
+    return User.findOne({ username: username }).exec();
 }
