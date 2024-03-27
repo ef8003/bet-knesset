@@ -6,14 +6,18 @@ const locationSchema = new mongoose.Schema({
   },
   landmark: {
     type: Array,
+    index: true,
+    unique: true,
+    required: true,
     properties: {
       longitude: { type: Number, required: true },
       latitude: { type: Number, required: true },
     },
   },
   approved: {
-    type: Boolean
+    type: Boolean,
+    default: false
   }
 });
-locationSchema.index({ landmark: { unique: true } });
+
 export const Location = mongoose.model("Location", locationSchema);
