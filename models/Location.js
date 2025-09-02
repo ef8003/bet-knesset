@@ -4,6 +4,10 @@ const locationSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  address:{
+    type: String,
+    required: true,
+  },
   landmark: {
     type: Array,
     index: true,
